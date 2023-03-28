@@ -124,9 +124,9 @@ This document requests/registers TLS Named Group
  {{Section 6 of TLS-REG=I-D.ietf-tls-rfc8447bis}}:
  
  Value:
- : 0xfe31 (please)
+ : 0x6399 (please)
  Description:
- : Xyber768Draft00
+ : X25519Kyber768Draft00
  DTLS-OK:
  : Y
  Recommended:
