@@ -123,6 +123,4 @@ This key agreement is assigned
 
 --- back
 
-# Acknowledgments
-{:numbered="false"}
-
+TODO ack
