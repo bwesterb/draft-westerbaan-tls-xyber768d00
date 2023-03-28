@@ -28,6 +28,10 @@ author:
     fullname: Bas Westerbaan
     organization: Cloudflare
     email: bas@cloudflare.com
+ -
+    fullname: Martin Thomson
+    organization: Mozilla
+    email:  mt@lowentropy.net
 
 normative:
   rfc8037:
