@@ -113,9 +113,9 @@ The shared secret is calculated as the concatenation of
 
 # Security Considerations
 
-This concatenation approach provides a secure key exchange if either
-    component key exchange methods (X25519 or Kyber768Draft00)
-    are secure {{hybrid}}.
+For TLS 1.3, this concatenation approach provides a secure key
+    exchange if either component key exchange methods (X25519
+    or Kyber768Draft00) are secure {{hybrid}}.
 
 
 # IANA Considerations
