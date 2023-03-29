@@ -97,18 +97,22 @@ The latter is Kyber as submitted
 
 For the client's share,
  the key_exchange value contains
-    the concatenation of the client's X25519 ephemeral share
-    and the client's Kyber768Draft00 public key.
+    the concatenation of the client's X25519 ephemeral share (32 bytes)
+    and the client's Kyber768Draft00 public key (1184 bytes).
+    The resulting key_exchange value is 1216 bytes in length.
 
 For the server's share,
  the key_exchange value contains
-    the concatenation of the server's X25519 ephemeral share
+    the concatenation of the server's X25519 ephemeral share (32 bytes)
     and the Kyber768Draft00 ciphertext returned
-    from encapsulation for the client's public key.
+    from encapsulation for the client's public key (1184 bytes).
+    The resulting key_exchange value is 1216 bytes in length.
 
 The shared secret is calculated as the concatenation of
-    the X25519 shared secret
-    and the Kyber768Draft00 shared secret.
+    the X25519 shared secret (32 bytes)
+    and the Kyber768Draft00 shared secret (1184 bytes).
+    The resulting shared secret value is 1216 bytes in length.
+    
 
 
 # Security Considerations
@@ -120,9 +124,9 @@ For TLS 1.3, this concatenation approach provides a secure key
 
 # IANA Considerations
 
-This document requests/registers TLS Named Group
- (or Supported Group), according to the procedures in
- {{Section 6 of tlsiana}}:
+This document requests/registers a new entry to the TLS Named Group
+ (or Supported Group) registry, according to the procedures in
+ {{Section 6 of tlsiana}}.
 
  Value:
  : 0x6399 (please)
