@@ -4,8 +4,9 @@
 
 Network Working Group                                      B. Westerbaan
 Internet-Draft                                                Cloudflare
-Intended status: Informational                             29 March 2023
-Expires: 30 September 2023
+Intended status: Informational                                D. Stebila
+Expires: 30 September 2023                        University of Waterloo
+                                                           29 March 2023
 
 
         X25519Kyber768Draft00 hybrid post-quantum key agreement
@@ -71,7 +72,7 @@ Table of Contents
    6.  References
      6.1.  Normative References
      6.2.  Informative References
-   Author's Address
+   Authors' Addresses
 
 1.  Introduction
 
@@ -98,16 +99,19 @@ Table of Contents
    round 3 of the NIST PQC process [KyberV302].
 
    For the client's share, the key_exchange value contains the
-   concatenation of the client's X25519 ephemeral share and the client's
-   Kyber768Draft00 public key.
+   concatenation of the client's X25519 ephemeral share (32 bytes) and
+   the client's Kyber768Draft00 public key (1184 bytes).  The resulting
+   key_exchange value is 1216 bytes in length.
 
    For the server's share, the key_exchange value contains the
-   concatenation of the server's X25519 ephemeral share and the
-   Kyber768Draft00 ciphertext returned from encapsulation for the
-   client's public key.
+   concatenation of the server's X25519 ephemeral share (32 bytes) and
+   the Kyber768Draft00 ciphertext (1088 bytes) returned from
+   encapsulation for the client's public key.  The resulting
+   key_exchange value is 1120 bytes in length.
 
    The shared secret is calculated as the concatenation of the X25519
-   shared secret and the Kyber768Draft00 shared secret.
+   shared secret (32 bytes) and the Kyber768Draft00 shared secret (32
+   bytes).  The resulting shared secret value is 64 bytes in length.
 
 4.  Security Considerations
 
@@ -117,8 +121,9 @@ Table of Contents
 
 5.  IANA Considerations
 
-   This document requests/registers TLS Named Group (or Supported
-   Group), according to the procedures in Section 6 of [tlsiana]:
+   This document requests/registers a new entry to the TLS Named Group
+   (or Supported Group) registry, according to the procedures in
+   Section 6 of [tlsiana].
 
    Value:  0x6399 (please)
 
@@ -178,8 +183,13 @@ Table of Contents
               <https://datatracker.ietf.org/doc/html/draft-ietf-tls-
               rfc8447bis-04>.
 
-Author's Address
+Authors' Addresses
 
    Bas Westerbaan
    Cloudflare
    Email: bas@cloudflare.com
+
+
+   Douglas Stebila
+   University of Waterloo
+   Email: dstebila@uwaterloo.ca
