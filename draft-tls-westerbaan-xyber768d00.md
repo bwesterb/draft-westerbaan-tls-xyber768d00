@@ -28,6 +28,10 @@ author:
     fullname: Bas Westerbaan
     organization: Cloudflare
     email: bas@cloudflare.com
+ -
+    fullname: Douglas Stebila
+    organization: University of Waterloo
+    email: dstebila@uwaterloo.ca
 
 normative:
   rfc8037:
