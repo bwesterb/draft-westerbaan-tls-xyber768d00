@@ -116,7 +116,7 @@ The shared secret is calculated as the concatenation of
     the X25519 shared secret (32 bytes)
     and the Kyber768Draft00 shared secret (32 bytes).
     The resulting shared secret value is 64 bytes in length.
-    
+
 
 
 # Security Considerations
