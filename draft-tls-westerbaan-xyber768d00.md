@@ -108,14 +108,14 @@ For the client's share,
 For the server's share,
  the key_exchange value contains
     the concatenation of the server's X25519 ephemeral share (32 bytes)
-    and the Kyber768Draft00 ciphertext returned
-    from encapsulation for the client's public key (1184 bytes).
-    The resulting key_exchange value is 1216 bytes in length.
+    and the Kyber768Draft00 ciphertext (1088 bytes) returned
+    from encapsulation for the client's public key.
+    The resulting key_exchange value is 1120 bytes in length.
 
 The shared secret is calculated as the concatenation of
     the X25519 shared secret (32 bytes)
-    and the Kyber768Draft00 shared secret (1184 bytes).
-    The resulting shared secret value is 1216 bytes in length.
+    and the Kyber768Draft00 shared secret (32 bytes).
+    The resulting shared secret value is 64 bytes in length.
     
 
 
