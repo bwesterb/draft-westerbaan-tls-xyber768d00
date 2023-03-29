@@ -36,6 +36,7 @@ normative:
 
 informative:
   HYBRID: I-D.ietf-tls-hybrid-design
+  tlsiana: I-D.ietf-tls-rfc8447bis
   KyberV302:
     target: https://pq-crystals.org/kyber/data/kyber-specification-round3-20210804.pdf
     title: CRYSTALS-Kyber, Algorithm Specification And Supporting Documentation (version 3.02)
@@ -80,7 +81,7 @@ This memo defines X25519Kyber768Draft00, a hybrid post-quantum key exchange
 The final draft for Kyber is expected in 2024.
 There are already early deployments of post-quantum key agreement,
     with more to come before Kyber is standardised.
-To promote interoperability of early implementations, 
+To promote interoperability of early implementations,
     this document specifies a preliminary hybrid post-quantum key agreement.
 
 # Construction
@@ -119,10 +120,10 @@ This concatenation approach provides a secure key exchange if either
 
 # IANA Considerations
 
-This document requests/registers TLS Named Group 
+This document requests/registers TLS Named Group
  (or Supported Group), according to the procedures in
- {{Section 6 of TLS-REG=I-D.ietf-tls-rfc8447bis}}:
- 
+ {{Section 6 of tlsiana}}:
+
  Value:
  : 0x6399 (please)
  Description:
