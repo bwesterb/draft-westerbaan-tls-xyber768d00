@@ -35,7 +35,7 @@ normative:
 
 
 informative:
-  HYBRID: I-D.ietf-tls-hybrid-design
+  hybrid: I-D.ietf-tls-hybrid-design
   tlsiana: I-D.ietf-tls-rfc8447bis
   KyberV302:
     target: https://pq-crystals.org/kyber/data/kyber-specification-round3-20210804.pdf
@@ -115,7 +115,7 @@ The shared secret is calculated as the concatenation of
 
 This concatenation approach provides a secure key exchange if either
     component key exchange methods (X25519 or Kyber768Draft00)
-    are secure {{HYBRID}}.
+    are secure {{hybrid}}.
 
 
 # IANA Considerations
@@ -126,14 +126,19 @@ This document requests/registers TLS Named Group
 
  Value:
  : 0x6399 (please)
+
  Description:
  : X25519Kyber768Draft00
+
  DTLS-OK:
  : Y
+
  Recommended:
  : N
+
  Reference:
  : This document
+
  Comment:
  : Pre-standards version of Kyber768
 
