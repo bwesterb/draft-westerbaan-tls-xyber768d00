@@ -84,6 +84,10 @@ There are already early deployments of post-quantum key agreement,
 To promote interoperability of early implementations,
     this document specifies a preliminary hybrid post-quantum key agreement.
 
+# Conventions and Definitions
+
+{::boilerplate bcp14-tagged}
+
 # Construction
 
 We instantiate draft-ietf-tls-hybrid-design-06 with
@@ -105,10 +109,6 @@ For the server's share,
 The shared secret is calculated as the concatenation of
     the X25519 shared secret
     and the Kyber768Draft00 shared secret.
-
-# Conventions and Definitions
-
-{::boilerplate bcp14-tagged}
 
 
 # Security Considerations
