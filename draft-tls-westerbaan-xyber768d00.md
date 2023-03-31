@@ -35,7 +35,7 @@ author:
     email: dstebila@uwaterloo.ca
 
 normative:
-  rfc8037:
+  rfc7748:
   kyber: I-D.cfrg-schwabe-kyber
 
 
@@ -96,7 +96,7 @@ To promote interoperability of early implementations,
 # Construction
 
 We instantiate draft-ietf-tls-hybrid-design-06 with
-    X25519 {{rfc8037}} and Kyber768Draft00 {{kyber}}.
+    X25519 {{rfc7748}} and Kyber768Draft00 {{kyber}}.
 The latter is Kyber as submitted
     to round 3 of the NIST PQC process {{KyberV302}}.
 
@@ -157,6 +157,10 @@ This document requests/registers a new entry to the TLS Named Group
 
 > **RFC Editor's Note:** Please remove this section prior to publication of a
 > final version of this document.
+
+## Since draft-tls-westerbaan-xyber768d00-01
+
+- Change reference for X25519
 
 ## Since draft-tls-westerbaan-xyber768d00-00
 
