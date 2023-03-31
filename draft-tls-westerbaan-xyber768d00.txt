@@ -2,11 +2,11 @@
 
 
 
-Network Working Group                                      B. Westerbaan
+None                                                       B. Westerbaan
 Internet-Draft                                                Cloudflare
 Intended status: Informational                                D. Stebila
-Expires: 30 September 2023                        University of Waterloo
-                                                           29 March 2023
+Expires: 2 October 2023                           University of Waterloo
+                                                           31 March 2023
 
 
         X25519Kyber768Draft00 hybrid post-quantum key agreement
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 30 September 2023.
+   This Internet-Draft will expire on 2 October 2023.
 
 Copyright Notice
 
@@ -72,6 +72,8 @@ Table of Contents
    6.  References
      6.1.  Normative References
      6.2.  Informative References
+   Appendix A.  Change log
+     A.1.  Since draft-tls-westerbaan-xyber768d00-00
    Authors' Addresses
 
 1.  Introduction
@@ -143,9 +145,9 @@ Table of Contents
 
    [kyber]    Schwabe, P. and B. Westerbaan, "Kyber Post-Quantum KEM",
               Work in Progress, Internet-Draft, draft-cfrg-schwabe-
-              kyber-01, 23 September 2022,
+              kyber-02, 31 March 2023,
               <https://datatracker.ietf.org/doc/html/draft-cfrg-schwabe-
-              kyber-01>.
+              kyber-02>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -182,6 +184,17 @@ Table of Contents
               ietf-tls-rfc8447bis-04, 27 March 2023,
               <https://datatracker.ietf.org/doc/html/draft-ietf-tls-
               rfc8447bis-04>.
+
+Appendix A.  Change log
+
+      *RFC Editor's Note:* Please remove this section prior to
+      publication of a final version of this document.
+
+A.1.  Since draft-tls-westerbaan-xyber768d00-00
+
+   *  Set working group to None.
+
+   *  Bump to cfrg-schwabe-kyber-02
 
 Authors' Addresses
 
