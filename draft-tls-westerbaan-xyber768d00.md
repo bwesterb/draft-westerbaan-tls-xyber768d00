@@ -7,10 +7,11 @@ docname: draft-tls-westerbaan-xyber768d00-latest
 submissiontype: IETF  # also: "independent", "IAB", or "IRTF"
 number:
 date:
+stand_alone: yes
 consensus: true
 v: 3
 # area: AREA
-# workgroup: WG Working Group
+workgroup: None
 keyword:
  - kyber
  - x25519
@@ -152,3 +153,12 @@ This document requests/registers a new entry to the TLS Named Group
 
 --- back
 
+# Change log
+
+> **RFC Editor's Note:** Please remove this section prior to publication of a
+> final version of this document.
+
+## Since draft-tls-westerbaan-xyber768d00-00
+
+- Set working group to None.
+- Bump to cfrg-schwabe-kyber-02
