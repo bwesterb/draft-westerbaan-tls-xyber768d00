@@ -73,7 +73,8 @@ Table of Contents
      6.1.  Normative References
      6.2.  Informative References
    Appendix A.  Change log
-     A.1.  Since draft-tls-westerbaan-xyber768d00-00
+     A.1.  Since draft-tls-westerbaan-xyber768d00-01
+     A.2.  Since draft-tls-westerbaan-xyber768d00-00
    Authors' Addresses
 
 1.  Introduction
@@ -96,7 +97,7 @@ Table of Contents
 
 3.  Construction
 
-   We instantiate draft-ietf-tls-hybrid-design-06 with X25519 [rfc8037]
+   We instantiate draft-ietf-tls-hybrid-design-06 with X25519 [rfc7748]
    and Kyber768Draft00 [kyber].  The latter is Kyber as submitted to
    round 3 of the NIST PQC process [KyberV302].
 
@@ -154,10 +155,9 @@ Table of Contents
               DOI 10.17487/RFC2119, March 1997,
               <https://www.rfc-editor.org/rfc/rfc2119>.
 
-   [rfc8037]  Liusvaara, I., "CFRG Elliptic Curve Diffie-Hellman (ECDH)
-              and Signatures in JSON Object Signing and Encryption
-              (JOSE)", RFC 8037, DOI 10.17487/RFC8037, January 2017,
-              <https://www.rfc-editor.org/rfc/rfc8037>.
+   [rfc7748]  Langley, A., Hamburg, M., and S. Turner, "Elliptic Curves
+              for Security", RFC 7748, DOI 10.17487/RFC7748, January
+              2016, <https://www.rfc-editor.org/rfc/rfc7748>.
 
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
@@ -190,7 +190,11 @@ Appendix A.  Change log
       *RFC Editor's Note:* Please remove this section prior to
       publication of a final version of this document.
 
-A.1.  Since draft-tls-westerbaan-xyber768d00-00
+A.1.  Since draft-tls-westerbaan-xyber768d00-01
+
+   *  Change reference for X25519
+
+A.2.  Since draft-tls-westerbaan-xyber768d00-00
 
    *  Set working group to None.
 
