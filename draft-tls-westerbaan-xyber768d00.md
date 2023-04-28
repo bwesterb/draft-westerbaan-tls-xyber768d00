@@ -34,6 +34,11 @@ author:
     fullname: Douglas Stebila
     organization: University of Waterloo
     email: dstebila@uwaterloo.ca
+  -
+    ins: S. Fluhrer
+    name: Scott Fluhrer
+    organization: Cisco Systems
+    email: sfluhrer@cisco.com
 
 normative:
   rfc7748:
