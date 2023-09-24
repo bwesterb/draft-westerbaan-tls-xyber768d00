@@ -43,6 +43,7 @@ normative:
 informative:
   hybrid: I-D.ietf-tls-hybrid-design
   tlsiana: I-D.ietf-tls-rfc8447bis
+  hpkexyber: I-D.westerbaan-cfrg-hpke-xyber768d00
   KyberV302:
     target: https://pq-crystals.org/kyber/data/kyber-specification-round3-20210804.pdf
     title: CRYSTALS-Kyber, Algorithm Specification And Supporting Documentation (version 3.02)
@@ -89,6 +90,18 @@ There are already early deployments of post-quantum key agreement,
     with more to come before Kyber is standardised.
 To promote interoperability of early implementations,
     this document specifies a preliminary hybrid post-quantum key agreement.
+
+## Warning: relation with X25519Kyber768Draft00 for HPKE
+
+In {{hpkexyber}} a hybrid KEM with the same name is defined
+for use in HPKE. It differs from the hybrid KEM implicit in
+this document: here we use the X25519 shared secret directly,
+whereas in {{hpkexyber}}, the ephemeral X25519 public key
+(ciphertext) is mixed in.
+For use in HPKE this is required to be IND-CCA2 robust.
+This is not required for use in TLS 1.3, thanks to
+the inclusion of the keyshare in the message transcript.
+
 
 # Conventions and Definitions
 
@@ -158,6 +171,10 @@ This document requests/registers a new entry to the TLS Named Group
 
 > **RFC Editor's Note:** Please remove this section prior to publication of a
 > final version of this document.
+
+## Since draft-tls-westerbaan-xyber768d00-02
+
+- Explain relation with HPKE hybrid
 
 ## Since draft-tls-westerbaan-xyber768d00-01
 
