@@ -11,26 +11,24 @@
        This memo defines X25519Kyber768Draft00, a hybrid post-quantum key exchange
     for TLS 1.3. 
     " name="description">
-<meta content="xml2rfc 3.17.0" name="generator">
+<meta content="xml2rfc 3.18.0" name="generator">
 <meta content="kyber" name="keyword">
 <meta content="x25519" name="keyword">
 <meta content="post-quantum" name="keyword">
 <meta content="draft-tls-westerbaan-xyber768d00-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.17.0
-    Python 3.10.10
-    appdirs 1.4.4
+  xml2rfc 3.18.0
+    Python 3.11.5
     ConfigArgParse 1.5.3
-    google-i18n-address 2.5.2
-    html5lib 1.1
+    google-i18n-address 3.1.0
     intervaltree 3.1.0
     Jinja2 3.1.2
-    lxml 4.9.2
-    MarkupSafe 2.1.1
+    lxml 4.9.3
+    platformdirs 3.10.0
     pycountry 22.3.5
     PyYAML 6.0
-    requests 2.28.1
-    setuptools 65.6.0
+    requests 2.31.0
+    setuptools 67.7.2
     six 1.16.0
     wcwidth 0.2.6
 -->
@@ -614,6 +612,7 @@ sub, sup {
   clear: left;
   float: left;
   text-align: right;
+  margin-right: 1ch;
 }
 #identifiers dd {
   margin: 0;
@@ -654,7 +653,7 @@ sub, sup {
 }
 #toc nav li {
   line-height: 1.3em;
-  margin: 0.75em 0;
+  margin: 2px 0;
   padding-left: 1.2em;
   text-indent: -1.2em;
 }
@@ -665,7 +664,8 @@ sub, sup {
 .references dt {
   text-align: right;
   font-weight: bold;
-  min-width: 7em;
+  min-width: 10ch;
+  margin-right: 1.5ch;
 }
 .references dt:target::before {
   content: "⇒";
@@ -673,7 +673,7 @@ sub, sup {
   margin: 0 10px 0 -25px;
 }
 .references dd {
-  margin-left: 8em !important;
+  margin-left: 12ch !important;
   overflow: auto;
 }
 
@@ -746,7 +746,7 @@ hr.addr {
     z-index: 2;
     top: 0;
     right: 0;
-    padding: 0;
+    padding: 1px 0 0 0;
     margin: 0;
     border-bottom: 1px solid #ccc;
     opacity: 0.6;
@@ -870,16 +870,13 @@ hr.addr {
     border-top: none;
     padding-top: 0;
   }
-  figure, pre {
+  figure, pre, .vcard {
     page-break-inside: avoid;
-  }
-  figure {
-    overflow: scroll;
   }
   h1, h2, h3, h4, h5, h6 {
     page-break-after: avoid;
   }
-  h2+*, h3+*, h4+*, h5+*, h6+* {
+  :is(h2, h3, h4, h5, h6)+*, dd {
     page-break-before: avoid;
   }
   pre {
@@ -892,6 +889,9 @@ hr.addr {
   }
   td {
     border-top: 1px solid #ddd;
+  }
+  .toplink {
+    display: none;
   }
 }
 
@@ -993,28 +993,6 @@ address div.right {
   text-align: right;
 }
 
-/* Give the table caption label the same styling as the figcaption */
-
-@media print {
-  .toplink {
-    display: none;
-  }
-
-  /* avoid overwriting the top border line with the ToC header */
-  #toc {
-    padding-top: 1px;
-  }
-
-  /* Avoid page breaks inside dl and author address entries */
-  dd {
-    page-break-before: avoid;
-  }
-  .vcard {
-    page-break-inside: avoid;
-  }
-
-}
-
 /* Dark mode. */
 @media (prefers-color-scheme: dark) {
 :root {
@@ -1051,11 +1029,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">xyber768d00</td>
-<td class="right">April 2023</td>
+<td class="right">September 2023</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Westerbaan &amp; Stebila</td>
-<td class="center">Expires 9 October 2023</td>
+<td class="center">Expires 27 March 2024</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1068,12 +1046,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-tls-westerbaan-xyber768d00-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2023-04-07" class="published">7 April 2023</time>
+<time datetime="2023-09-24" class="published">24 September 2023</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2023-10-09">9 October 2023</time></dd>
+<dd class="expires"><time datetime="2024-03-27">27 March 2024</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1123,7 +1101,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 9 October 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 27 March 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1158,10 +1136,13 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.1">
                 <p id="section-toc.1-1.1.2.1.1" class="keepWithNext"><a href="#section-1.1" class="auto internal xref">1.1</a>.  <a href="#name-motivation" class="internal xref">Motivation</a></p>
 </li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.2">
+                <p id="section-toc.1-1.1.2.2.1" class="keepWithNext"><a href="#section-1.2" class="auto internal xref">1.2</a>.  <a href="#name-warning-relation-with-x2551" class="internal xref">Warning: relation with X25519Kyber768Draft00 for HPKE</a></p>
+</li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2">
-            <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-conventions-and-definitions" class="internal xref">Conventions and Definitions</a></p>
+            <p id="section-toc.1-1.2.1"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-conventions-and-definitions" class="internal xref">Conventions and Definitions</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
             <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-construction" class="internal xref">Construction</a></p>
@@ -1187,10 +1168,13 @@ svg :is([fill="white"], [fill^="#fff"]) {
             <p id="section-toc.1-1.7.1"><a href="#appendix-A" class="auto internal xref">Appendix A</a>.  <a href="#name-change-log" class="internal xref">Change log</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.1">
-                <p id="section-toc.1-1.7.2.1.1"><a href="#appendix-A.1" class="auto internal xref">A.1</a>.  <a href="#name-since-draft-tls-westerbaan-" class="internal xref">Since draft-tls-westerbaan-xyber768d00-01</a></p>
+                <p id="section-toc.1-1.7.2.1.1"><a href="#appendix-A.1" class="auto internal xref">A.1</a>.  <a href="#name-since-draft-tls-westerbaan-" class="internal xref">Since draft-tls-westerbaan-xyber768d00-02</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.2">
-                <p id="section-toc.1-1.7.2.2.1"><a href="#appendix-A.2" class="auto internal xref">A.2</a>.  <a href="#name-since-draft-tls-westerbaan-x" class="internal xref">Since draft-tls-westerbaan-xyber768d00-00</a></p>
+                <p id="section-toc.1-1.7.2.2.1"><a href="#appendix-A.2" class="auto internal xref">A.2</a>.  <a href="#name-since-draft-tls-westerbaan-x" class="internal xref">Since draft-tls-westerbaan-xyber768d00-01</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.3">
+                <p id="section-toc.1-1.7.2.3.1"><a href="#appendix-A.3" class="auto internal xref">A.3</a>.  <a href="#name-since-draft-tls-westerbaan-xy" class="internal xref">Since draft-tls-westerbaan-xyber768d00-00</a></p>
 </li>
             </ul>
 </li>
@@ -1216,6 +1200,21 @@ There are already early deployments of post-quantum key agreement,
     with more to come before Kyber is standardised.
 To promote interoperability of early implementations,
     this document specifies a preliminary hybrid post-quantum key agreement.<a href="#section-1.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="warning-relation-with-x25519kyber768draft00-for-hpke">
+<section id="section-1.2">
+        <h3 id="name-warning-relation-with-x2551">
+<a href="#section-1.2" class="section-number selfRef">1.2. </a><a href="#name-warning-relation-with-x2551" class="section-name selfRef">Warning: relation with X25519Kyber768Draft00 for HPKE</a>
+        </h3>
+<p id="section-1.2-1">In <span>[<a href="#hpkexyber" class="cite xref">hpkexyber</a>]</span> a hybrid KEM with the same name is defined
+for use in HPKE. It differs from the hybrid KEM implicit in
+this document: here we use the X25519 shared secret directly,
+whereas in <span>[<a href="#hpkexyber" class="cite xref">hpkexyber</a>]</span>, the ephemeral X25519 public key
+(ciphertext) is mixed in.
+For use in HPKE this is required to be IND-CCA2 robust.
+This is not required for use in TLS 1.3, thanks to
+the inclusion of the keyshare in the message transcript.<a href="#section-1.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1341,9 +1340,13 @@ The latter is Kyber as submitted
 <a href="#section-6.2" class="section-number selfRef">6.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
         </h3>
 <dl class="references">
+<dt id="hpkexyber">[hpkexyber]</dt>
+        <dd>
+<span class="refAuthor">Westerbaan, B.</span> and <span class="refAuthor">C. A. Wood</span>, <span class="refTitle">"X25519Kyber768Draft00 hybrid post-quantum KEM for HPKE"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-westerbaan-cfrg-hpke-xyber768d00-02</span>, <time datetime="2023-05-04" class="refDate">4 May 2023</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-westerbaan-cfrg-hpke-xyber768d00-02">https://datatracker.ietf.org/doc/html/draft-westerbaan-cfrg-hpke-xyber768d00-02</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="hybrid">[hybrid]</dt>
         <dd>
-<span class="refAuthor">Stebila, D.</span>, <span class="refAuthor">Fluhrer, S.</span>, and <span class="refAuthor">S. Gueron</span>, <span class="refTitle">"Hybrid key exchange in TLS 1.3"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-tls-hybrid-design-06</span>, <time datetime="2023-02-27" class="refDate">27 February 2023</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-hybrid-design-06">https://datatracker.ietf.org/doc/html/draft-ietf-tls-hybrid-design-06</a>&gt;</span>. </dd>
+<span class="refAuthor">Stebila, D.</span>, <span class="refAuthor">Fluhrer, S.</span>, and <span class="refAuthor">S. Gueron</span>, <span class="refTitle">"Hybrid key exchange in TLS 1.3"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-tls-hybrid-design-09</span>, <time datetime="2023-09-07" class="refDate">7 September 2023</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-hybrid-design-09">https://datatracker.ietf.org/doc/html/draft-ietf-tls-hybrid-design-09</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="KyberV302">[KyberV302]</dt>
         <dd>
@@ -1367,26 +1370,37 @@ The latter is Kyber as submitted
 final version of this document.<a href="#appendix-A-1.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<div id="since-draft-tls-westerbaan-xyber768d00-01">
+<div id="since-draft-tls-westerbaan-xyber768d00-02">
 <section id="appendix-A.1">
         <h3 id="name-since-draft-tls-westerbaan-">
-<a href="#appendix-A.1" class="section-number selfRef">A.1. </a><a href="#name-since-draft-tls-westerbaan-" class="section-name selfRef">Since draft-tls-westerbaan-xyber768d00-01</a>
+<a href="#appendix-A.1" class="section-number selfRef">A.1. </a><a href="#name-since-draft-tls-westerbaan-" class="section-name selfRef">Since draft-tls-westerbaan-xyber768d00-02</a>
         </h3>
 <ul class="normal">
-<li class="normal" id="appendix-A.1-1.1">Change reference for X25519<a href="#appendix-A.1-1.1" class="pilcrow">¶</a>
+<li class="normal" id="appendix-A.1-1.1">Explain relation with HPKE hybrid<a href="#appendix-A.1-1.1" class="pilcrow">¶</a>
+</li>
+        </ul>
+</section>
+</div>
+<div id="since-draft-tls-westerbaan-xyber768d00-01">
+<section id="appendix-A.2">
+        <h3 id="name-since-draft-tls-westerbaan-x">
+<a href="#appendix-A.2" class="section-number selfRef">A.2. </a><a href="#name-since-draft-tls-westerbaan-x" class="section-name selfRef">Since draft-tls-westerbaan-xyber768d00-01</a>
+        </h3>
+<ul class="normal">
+<li class="normal" id="appendix-A.2-1.1">Change reference for X25519<a href="#appendix-A.2-1.1" class="pilcrow">¶</a>
 </li>
         </ul>
 </section>
 </div>
 <div id="since-draft-tls-westerbaan-xyber768d00-00">
-<section id="appendix-A.2">
-        <h3 id="name-since-draft-tls-westerbaan-x">
-<a href="#appendix-A.2" class="section-number selfRef">A.2. </a><a href="#name-since-draft-tls-westerbaan-x" class="section-name selfRef">Since draft-tls-westerbaan-xyber768d00-00</a>
+<section id="appendix-A.3">
+        <h3 id="name-since-draft-tls-westerbaan-xy">
+<a href="#appendix-A.3" class="section-number selfRef">A.3. </a><a href="#name-since-draft-tls-westerbaan-xy" class="section-name selfRef">Since draft-tls-westerbaan-xyber768d00-00</a>
         </h3>
 <ul class="normal">
-<li class="normal" id="appendix-A.2-1.1">Set working group to None.<a href="#appendix-A.2-1.1" class="pilcrow">¶</a>
+<li class="normal" id="appendix-A.3-1.1">Set working group to None.<a href="#appendix-A.3-1.1" class="pilcrow">¶</a>
 </li>
-          <li class="normal" id="appendix-A.2-1.2">Bump to cfrg-schwabe-kyber-02<a href="#appendix-A.2-1.2" class="pilcrow">¶</a>
+          <li class="normal" id="appendix-A.3-1.2">Bump to cfrg-schwabe-kyber-02<a href="#appendix-A.3-1.2" class="pilcrow">¶</a>
 </li>
         </ul>
 </section>
