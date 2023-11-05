@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-11-02T00:30:54.419161+00:00",
+  "timestamp": "2023-11-05T00:33:39.016348+00:00",
   "repo": "bwesterb/draft-westerbaan-tls-xyber768d00",
   "labels": [
     {
@@ -49,7 +49,74 @@
       "color": "ffffff"
     }
   ],
-  "issues": [],
+  "issues": [
+    {
+      "number": 6,
+      "id": "I_kwDOJPZd2851sv-7",
+      "title": "Is this document going to define how ephemeral hybrid shares are generated?",
+      "url": "https://github.com/bwesterb/draft-westerbaan-tls-xyber768d00/issues/6",
+      "state": "OPEN",
+      "author": "dconnolly",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "For example, do I create a single random seed, split it, and feed half to  X25519 keygen and the other half to Kyber768 keygen? Do each component scheme just do everything independently? The document as it stands would allow me to do both and be compliant.",
+      "createdAt": "2023-11-02T16:53:56Z",
+      "updatedAt": "2023-11-03T12:22:45Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "bwesterb",
+          "authorAssociation": "OWNER",
+          "body": "Either is fine, and I do not see a reason to mandate one of them. But I could be missing something.\r\n\r\nAn aside: HPKE does require KEMs to specify their keygen explicitly, and so we do for the hybrid there in [section 3.3](https://datatracker.ietf.org/doc/html/draft-westerbaan-cfrg-hpke-xyber768d00).",
+          "createdAt": "2023-11-02T20:34:04Z",
+          "updatedAt": "2023-11-02T20:34:04Z"
+        },
+        {
+          "author": "dconnolly",
+          "authorAssociation": "NONE",
+          "body": "Defining something is better than nothing, as someone may come up with some other deranged scheme because it was never written down; that [`DeriveKeyPair`](https://datatracker.ietf.org/doc/html/draft-westerbaan-cfrg-hpke-xyber768d00) is pretty great",
+          "createdAt": "2023-11-02T20:59:55Z",
+          "updatedAt": "2023-11-02T21:01:01Z"
+        },
+        {
+          "author": "bwesterb",
+          "authorAssociation": "OWNER",
+          "body": "Most APIs won't allow you to pass the seed: the obvious thing to do then is simply call keygen for both separately, and that's perfectly fine. That is how BoringSSL [does it](https://github.com/google/boringssl/blob/f714cb2935906a2f085c3b89d7e206af94627b56/ssl/ssl_key_share.cc#L204-L207). If we mandate a certain way to generate both components, we'd have to complicate that simple approach. ",
+          "createdAt": "2023-11-02T21:11:36Z",
+          "updatedAt": "2023-11-02T21:11:36Z"
+        },
+        {
+          "author": "dconnolly",
+          "authorAssociation": "NONE",
+          "body": "Fair enough, can that be made explicit? `X25519Kyber768Draft00.KeyGen() = (X25519.KeyGen(), Kyber768.keyGen())` or similar",
+          "createdAt": "2023-11-03T01:44:35Z",
+          "updatedAt": "2023-11-03T01:44:35Z"
+        },
+        {
+          "author": "bwesterb",
+          "authorAssociation": "OWNER",
+          "body": "[`draft-ietf-tls-hybrid-design`](https://datatracker.ietf.org/doc/draft-ietf-tls-hybrid-design/), of which this is an instantiation writes\r\n\r\n```\r\n   [TLS13] requires that ``The key_exchange values for each\r\n   KeyShareEntry MUST be generated independently.'' In the context of\r\n   this document, since the same algorithm may appear in multiple named\r\n   groups, we relax the above requirement to allow the same key_exchange\r\n   value for the same algorithm to be reused in multiple KeyShareEntry\r\n   records sent in within the same ClientHello.  However, key_exchange\r\n   values for different algorithms MUST be generated independently.\r\n```\r\n\r\nIs that satisfactory or too implicit?",
+          "createdAt": "2023-11-03T09:56:02Z",
+          "updatedAt": "2023-11-03T09:56:22Z"
+        },
+        {
+          "author": "dconnolly",
+          "authorAssociation": "NONE",
+          "body": "> [`draft-ietf-tls-hybrid-design`](https://datatracker.ietf.org/doc/draft-ietf-tls-hybrid-design/), of which this is an instantiation writes\n> \n> ```\n>    [TLS13] requires that ``The key_exchange values for each\n>    KeyShareEntry MUST be generated independently.'' In the context of\n>    this document, since the same algorithm may appear in multiple named\n>    groups, we relax the above requirement to allow the same key_exchange\n>    value for the same algorithm to be reused in multiple KeyShareEntry\n>    records sent in within the same ClientHello.  However, key_exchange\n>    values for different algorithms MUST be generated independently.\n> ```\n> \n> Is that satisfactory or too implicit?\n\nI will probably submit suggestions to clarify that language in draft-ietf-tls-hybrid-design too (one can possibly read 'independently' and 'different algorithms' to include the hybrid one, too), but I think it should be made explicit: in the X25519Kyber758Draft00 instantiation, this means \n`X25519Kyber758Draft00.KeyGen() = (X25519.KeyGen(), Kyber758.KeyGen())` every time, although the invocation of each component scheme may have been done once and the resulting values used in multiple `KeyShareEntry`s in one `ClientHello`. The way it currently stands, the only component value likely to be in multiple `KeyShareEntry`s is X25519, not Kyber758, so maybe making it explicit that that is an acceptable implementation of this document would be helpful.\n",
+          "createdAt": "2023-11-03T12:21:16Z",
+          "updatedAt": "2023-11-03T12:21:16Z"
+        },
+        {
+          "author": "dconnolly",
+          "authorAssociation": "NONE",
+          "body": "> > [`draft-ietf-tls-hybrid-design`](https://datatracker.ietf.org/doc/draft-ietf-tls-hybrid-design/), of which this is an instantiation writes\n> > \n> > ```\n> >    [TLS13] requires that ``The key_exchange values for each\n> >    KeyShareEntry MUST be generated independently.'' In the context of\n> >    this document, since the same algorithm may appear in multiple named\n> >    groups, we relax the above requirement to allow the same key_exchange\n> >    value for the same algorithm to be reused in multiple KeyShareEntry\n> >    records sent in within the same ClientHello.  However, key_exchange\n> >    values for different algorithms MUST be generated independently.\n> > ```\n> > \n> > Is that satisfactory or too implicit?\n> \n> I will probably submit suggestions to clarify that language in draft-ietf-tls-hybrid-design too (one can possibly read 'independently' and 'different algorithms' to include the hybrid one, too), but I think it should be made explicit: in the X25519Kyber758Draft00 instantiation, this means \n> `X25519Kyber758Draft00.KeyGen() = (X25519.KeyGen(), Kyber758.KeyGen())` every time, although the invocation of each component scheme may have been done once and the resulting values used in multiple `KeyShareEntry`s in one `ClientHello`. The way it currently stands, the only component value likely to be in multiple `KeyShareEntry`s is X25519, not Kyber758, so maybe making it explicit that that is an acceptable implementation of this document would be helpful.\n> \n\n(Not ignoring the KEMTLS work but you know)",
+          "createdAt": "2023-11-03T12:22:45Z",
+          "updatedAt": "2023-11-03T12:22:45Z"
+        }
+      ]
+    }
+  ],
   "pulls": [
     {
       "number": 1,
